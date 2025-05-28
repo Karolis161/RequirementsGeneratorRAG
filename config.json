@@ -1,0 +1,45 @@
+{
+  "data_processing": {
+    "chunk_size": 512,
+    "overlap": 150,
+    "num_threads": 8
+  },
+  "embeddings": {
+    "embedding_model": "text-embedding-3-large",
+    "batch_size": 100,
+    "max_workers": 8
+  },
+  "retrieval": {
+    "top_k": 20,
+    "min_score": 0.4,
+    "temperature": 0.6,
+    "context_max_tokens": 4000,
+    "strategy": "top_k",
+    "position": "after",
+    "adaptive_top_k": false,
+    "retrieval_enabled": true,
+    "inject_noise": false
+  },
+  "prompt": {
+    "style": "cot_few_shot"
+  },
+  "vector_store": {
+    "db_path": "./chroma_db",
+    "collection_name": "requirements_db",
+    "similarity_metric": "cosine",
+    "clear_existing": false,
+    "max_batch_size": 5000
+  },
+  "performance": {
+    "persist_vectors": true
+  },
+  "gpt": {
+    "model": "gpt-4o"
+  },
+  "web_extraction": {
+    "websites": [
+      "https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html",
+      "https://pages.nist.gov/800-63-4/sp800-63a.html"
+    ]
+  }
+}
