@@ -1,7 +1,6 @@
 from typing import List
 
 import openai
-import random
 import numpy as np
 import os
 from dotenv import load_dotenv
@@ -82,9 +81,9 @@ def generate_requirements(query: str, retrieved_chunks: list) -> str:
     if POSITION == "before":
         prompt = base_prompt
     else:
-        prompt = base_prompt.replace("**Query:**", "**Retrieved Text:** [AFTER-INSERT]").replace("**Retrieved Text:**",
-                                                                                                 "**Query:**").replace(
-            "[AFTER-INSERT]", "**Query:**")
+        prompt = (base_prompt.replace("**Query:**", "**Retrieved Text:** [AFTER-INSERT]")
+        .replace("**Retrieved Text:**", "**Query:**")
+                  .replace("[AFTER-INSERT]", "**Query:**"))
 
     response = openai.chat.completions.create(
         model=GPT_MODEL,

@@ -32,5 +32,5 @@ def extract_text_from_website(url, timeout=10):
         soup = BeautifulSoup(response.text, "html.parser")
         return "\n".join(p.get_text().strip() for p in soup.find_all("p") if p.get_text().strip())
     except requests.RequestException as e:
-        print(f"⚠️ Error fetching {url}: {e}")
+        print(f"Error fetching {url}: {e}")
         return ""
