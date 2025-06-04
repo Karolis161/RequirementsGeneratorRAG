@@ -7,7 +7,7 @@ To run the system:
 1. Clone the repository:
 ```bash
 git clone https://github.com/Karolis161/RequirementsGeneratorRAG.git
-cd your-repo-name
+cd RequirementsGeneratorRAG
 ```
 2. Install Python dependencies:
 ```bash
